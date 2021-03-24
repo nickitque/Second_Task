@@ -8,9 +8,6 @@ from pytest import fixture
 @pytest.fixture()
 client = HTTPClient()
 @pytest.fixture()
-parserr = TutByParser()
-
-main_script = script
 
 
 @pytest.fixture()
