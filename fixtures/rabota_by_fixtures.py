@@ -35,7 +35,7 @@ def occurence_of_words():
     return words_found3
 
 @pytest.fixture()
-def grab_vacancies_list():
+def parser.grab_vacancies_list():
     url = parserr.get_vacancies_urls(search_word="python")
     response = client.get(url, headers=headers)
     vacancy_links = []
@@ -45,7 +45,7 @@ def grab_vacancies_list():
     return vacancy_links
 
 @pytest.fixture()
-def grab_total_vacancies_list():
+def parser.grab_total_vacancies_list():
     url = parserr.get_vacancies_urls()
     response = client.get(url, headers=tut_by.header)
     page = parserr.parsing_the_page(response)
@@ -55,7 +55,7 @@ def grab_total_vacancies_list():
     return total_vacancies
 
 @pytest.fixture()
-def search_number_of__vacancies():
+def parser.get_vacancies():
     url = parserr.get_url(search_word="python")
     response = client.get(url, headers=parser.headers)
     soup = BeautifulSoup(response.text, 'html.parser')
