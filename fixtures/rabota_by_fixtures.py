@@ -12,22 +12,27 @@ client = HTTPClient()
 
 @pytest.fixture()
 def connection_test():
+    """Taking status code from url"""
     url = parserr.get_vacancies_urls()
     response = client.get(url, headers=parserr.headers)
     return response
 
 @pytest.fixture()
-def find_shotgun_phrase():
+def shotgun_search_response():
+    "This step is to enter the word shotgun in search field and check absence of vacancies"
     url = parserr.get_url(search_word="shotgun")
     response = client.get(url, headers=parserr.headers)
     return response
 
 @pytest.fixture()
-def uccurence_of_words():
+def occurence_of_words():
+    """Step in which we are finding words Python, Linux and Flask"""
     words_found1 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word1, headers=parserr.headers)
     words_found2 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word2, headers=parserr.headers)
     words_found3 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word3, headers=parserr.headers)
-    return words_found1, words_found2, words_found3
+    return words_found1
+    return words_found2
+    return words_found3
 
 @pytest.fixture()
 def grab_vacancies_list():
