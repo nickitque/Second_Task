@@ -3,10 +3,15 @@ from models.parser import TutByParser
 import pytest
 import re
 from bs4 import BeautifulSoup
+from pytest import fixture
 
+@pytest.fixture()
 client = HTTPClient()
+@pytest.fixture()
 parserr = TutByParser()
+
 main_script = script
+
 
 @pytest.fixture()
 def connection_test():
