@@ -98,3 +98,14 @@ class TutByParser:
         number = vacs[0]
         return int(number)
 
+    def be_first_count(self, text, search_word1: str):
+        end_list = []
+        url = jobs_tut_by_url
+        search_word1 = "Будьте первыми"
+        for i in text:
+            scan_url = http_client.get(url, headers)
+            words_found1 = re.findall(search_word1.lower()),parsing_the_page(scan_url).get_text(" ".lower())
+            found1 = len(words_found1)
+            res = {search_word1: found1}
+            end_list.append(res)
+        return end_list
