@@ -31,15 +31,23 @@ def shotgun_search_response():
     return response
 
 @pytest.fixture()
-def occurence_of_words():
-    """Step in which we are finding words Python, Linux and Flask"""
-    words_found1 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word1, headers=parserr.headers)
-    words_found2 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word2, headers=parserr.headers)
-    words_found3 = parserr.average_number_of_occurence(jobs_tut_by_url, search_word3, headers=parserr.headers)
-    return words_found1
-    return words_found2
-    return words_found3
+def occurence_of_word_python():
+    """Step in which we are finding word Python"""
+    words_found = parserr.average_number_of_occurence(jobs_tut_by_url, search_word1, headers=parserr.headers)
+    return words_found
 
+@pytest.fixture()
+def occurence_of_word_python():
+    """Step in which we are finding word Linux"""
+    words_found = parserr.average_number_of_occurence(jobs_tut_by_url, search_word2, headers=parserr.headers)
+    return words_found
+
+@pytest.fixture()
+def occurence_of_word_python():
+    """Step in which we are finding word Flask"""
+    words_found = parserr.average_number_of_occurence(jobs_tut_by_url, search_word3, headers=parserr.headers)
+    return words_found
+  
 @pytest.fixture()
 def parser.grab_vacancies_list():
     url = parserr.get_vacancies_urls(search_word="python")
