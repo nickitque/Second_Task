@@ -48,6 +48,14 @@ class TutByParser:
             end_list.append(res)
         return end_list
 
+    def parser.grab_vacancies_list():
+        url = parserr.get_vacancies_urls(search_word="python")
+        response = client.get(url, headers=headers)
+        vacancy_links = []
+        for link in parserr.parsing_the_page(response).findAll('a', attrs={
+            'href': re.compile(f"query=python")}):
+        vacancy_links.append(link.get('href'))
+        return vacancy_links
 
     def get_all_pages():
         page_urls = []
@@ -72,3 +80,21 @@ class TutByParser:
               f"{word2} average: {round((total_words2 / total_vacancies), 2)}\n" \
               f"{word3} average: {round((total_words3 / total_vacancies), 2)}"
         return average_num
+    
+    def parser.grab_total_vacancies_list():
+        url = parserr.get_vacancies_urls()
+        response = client.get(url, headers=tut_by.header)
+        page = parserr.parsing_the_page(response)
+        num_pages = parserr.final_page(page)
+        pages_links = parserr.get_vacancies_urls(url, get_all_pages)
+        total_vacancies = parserr.get_vacancies_urls(pages_links, headers=parserr.headers, search_word="python")
+        return total_vacancies
+    
+    def parser.get_vacancies():
+        url = parserr.get_url(search_word="python")
+        response = client.get(url, headers=parser.headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        vacs = soup.find('h1', attrs={'class': 'bloko-header-1'}).text.split()
+        number = vacs[0]
+        return int(number)
+
