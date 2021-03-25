@@ -6,8 +6,14 @@ from bs4 import BeautifulSoup
 from pytest import fixture
 
 @pytest.fixture()
-client = HTTPClient()
+def http_client():
+"""HTTP client to provide basic http methods"""
+return HTTPClient()
+
 @pytest.fixture()
+def TutByParser()"
+"""Parser to parse vacancies, urls and some words"""
+return TutByParser()
 
 
 @pytest.fixture()
