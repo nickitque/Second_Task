@@ -50,12 +50,22 @@ def occurence_of_word_python():
   
 @pytest.fixture()
 def parser.grab_vacancies_list():
+    """Step to get list of vacancies from the page"""
     return vacancy_links
 
 @pytest.fixture()
 def parser.grab_total_vacancies_list():
+    """Vacancies from all pages"""
     return total_vacancies
 
 @pytest.fixture()
 def parser.get_vacancies():
+    """Getting content of vacancies"""
     return int(number)
+
+@pytest.fixture()
+def no_slackers_vacancies():
+    """This is to check that there are no vacancies for slackers"""
+    url = parserr.get_url(search_word="slacker")
+    response = client.get(url, headers=parserr.headers)
+    return response
