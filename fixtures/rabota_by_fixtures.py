@@ -1,3 +1,5 @@
+"""Current module is a fixtures for tests placed in /tests dir."""
+
 from clients.http_client import HTTPClient
 from models.parser import TutByParser
 import pytest
