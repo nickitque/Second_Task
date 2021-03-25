@@ -13,23 +13,22 @@ def http_client():
 return HTTPClient()
 
 @pytest.fixture()
-def TutByParser()"
+def tut_by_parser():
 """Parser to parse vacancies, urls and some words"""
-return TutByParser()
-
+return tut_by_parser()
 
 @pytest.fixture()
-def connection_test():
+def connection_test(http_client, tut_by_parser):
     """Taking status code from url"""
-    url = parserr.get_vacancies_urls()
-    response = client.get(url, headers=parserr.headers)
+    url = tut_by_parser.get_vacancies_urls()
+    response = http_client.get(url, headers=parserr.headers)
     return response
 
 @pytest.fixture()
 def shotgun_search_response():
     "This step is to enter the word shotgun in search field and check absence of vacancies"
     url = parserr.get_url(search_word="shotgun")
-    response = client.get(url, headers=parserr.headers)
+    response = http_client.get(url, headers=parserr.headers)
     return response
 
 @pytest.fixture()
@@ -69,7 +68,7 @@ def parser.get_vacancies():
 def no_slackers_vacancies():
     """This is to check that there are no vacancies for slackers"""
     url = parserr.get_url(search_word="slacker")
-    response = client.get(url, headers=parserr.headers)
+    response = http_client.get(url, headers=parserr.headers)
     return response
 
 @pytest.fixture()
