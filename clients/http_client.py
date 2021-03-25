@@ -2,7 +2,7 @@ import requests
 
 class HTTPClient:
     """
-    Module with HTTP client.
+    Class with HTTP client.
     """
     def get(self, url, params=None, **kwargs):
         response = requests.get(url, params=params, **kwargs)
