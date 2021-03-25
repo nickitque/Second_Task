@@ -5,11 +5,14 @@ class HTTPClient:
     Class with HTTP client.
     """
     def get(self, url, params=None, **kwargs):
+        """ Method for retrieving data"""
         response = requests.get(url, params=params, **kwargs)
         return response
     def post(self, url, data=None, json=None, **kwargs):
+        """ This method is used to send entities to a specific resource"""
         response = requests.post(url,data=data, json=json, **kwargs)
         return response
     def delete(self, url, **kwargs):
+        """This method removes the specified resource"""
         response = requests.delete(url, **kwargs)
         return response
