@@ -1,0 +1,5 @@
+
+def more_than_10_vacs_in_list(get_vacancies_urls):
+    """Test to check that quantity of vacancies is in borders (10:200)"""
+    assert len(get_vacancies_urls) >= 10, "OK. There are 10 or more vacancies"
+    assert len(get_vacancies_urls) <= 200, "OK. There are 200 or less vacancies"
